@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HEY</h1>
+    <h2>welcome to the site</h2>
+    <h3>the messaging site</h3>
+    <h4>make an account, login, post a message</h4>
+    <hr>
+        <a href="/createUser">Create an account</a> | 
+        <a href="/login">Login</a> | 
+        <a href="/message">post a message</a> | 
+    <hr>
+
+    <h2>Messages</h2>
+
+    <% for (let message of locals.messages) { %> 
+        <div>
+            <%= message.dataValues.content %> <br>
+            <input type="text" id="likenumber" value="0"/>
+            <input type="button" onclick="likeValue()" value="like" />
+            <input type="text" id="dislikenumber" value="0"/>
+            <input type="button" onclick="dislikeValue()" value="dislike" />
+            
+            <hr>
+        </div>
+    <% } %>
+    <script>
+   function likeValue()
+   {
+    var likevalue = parseInt(document.getElementById('likenumber').value, 10);
+    likevalue = isNaN(likevalue) ? 0 : likevalue;
+    likevalue++;
+    document.getElementById('likenumber').value = likevalue;
+  }
+  function dislikeValue()
+   {
+    
+    var dislikevalue = parseInt(document.getElementById('dislikenumber').value, 10);
+    dislikevalue = isNaN(dislikevalue) ? 0 : dislikevalue;
+    dislikevalue++;
+    document.getElementById('dislikenumber').value = dislikevalue;
+  }
+    
+    </script>
+</body>
+</html>
